@@ -10,6 +10,7 @@ digit.textContent = 0;
 
 clearAll.addEventListener('click', () => {
     digit.textContent = 0;
+    digit.style.fontSize = '5rem';
     question = '';
 });
 
