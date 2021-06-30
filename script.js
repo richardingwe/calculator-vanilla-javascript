@@ -1,15 +1,22 @@
 const digit = document.querySelector('.digits');
 const buttons = document.querySelectorAll('.button');
 const clear = document.querySelector('.clear');
+const clearAll = document.querySelector('.clearAll');
 const solve = document.querySelector('.solve');
 
 let question = '';
 
 digit.textContent = 0;
 
-clear.addEventListener('click', () => {
+clearAll.addEventListener('click', () => {
     digit.textContent = 0;
     question = '';
+});
+
+clear.addEventListener('click', () => {
+    digit.textContent = digit.textContent.slice(0, digit.textContent.length - 1);
+    question = question.slice(digit.textContent.length - 1);;
+    if (!digit.textContent) digit.textContent = 0;
 });
 
 solve.addEventListener('click', () => {

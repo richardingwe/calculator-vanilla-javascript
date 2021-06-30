@@ -60,6 +60,7 @@
 
 .row span.button,
 .clear,
+.clearAll,
 .solve,
 .plus_minus {
 	width: 70px;
@@ -74,6 +75,7 @@
 }
 .row span.button:hover,
 .clear:hover,
+.clearAll:hover,
 .solve:hover,
 .plus_minus:hover {
 	filter: brightness(70%);
