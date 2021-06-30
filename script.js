@@ -20,7 +20,7 @@ solve.addEventListener('click', () => {
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        console.log(e.target.getAttribute("data"));
+        // console.log(e.target.getAttribute("data"));
         if (digit.textContent[0] == '0') digit.textContent = digit.textContent.slice(1);
 
         question += e.target.getAttribute("data");

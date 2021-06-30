@@ -111,4 +111,7 @@
 		background-color: rgb(7, 5, 10);
 		padding: 2.3rem 0.7rem;
 	}
+	.row span.double {
+		width: 170px;
+	}
 }
