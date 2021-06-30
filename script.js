@@ -17,6 +17,12 @@ clear.addEventListener('click', () => {
     digit.textContent = digit.textContent.slice(0, digit.textContent.length - 1);
     question = question.slice(digit.textContent.length - 1);;
     if (!digit.textContent) digit.textContent = 0;
+
+    if (digit.textContent.length < 6) {
+        digit.style.fontSize = '5rem';
+    } else if (digit.textContent.length < 9) {
+        digit.style.fontSize = '3rem';
+    }
 });
 
 solve.addEventListener('click', () => {
@@ -31,8 +37,12 @@ buttons.forEach((button) => {
 
         if (digit.textContent.length > 17) return;
 
-        (digit.textContent.length > 4) && (digit.style.fontSize = '3rem');
-        (digit.textContent.length > 7) && (digit.style.fontSize = '1.5rem');
+        if (digit.textContent.length > 7) {
+            digit.style.fontSize = '1.5rem';
+        } else if (digit.textContent.length > 4) {
+            digit.style.fontSize = '3rem';
+        }
+
 
         if (digit.textContent[0] == '0') digit.textContent = digit.textContent.slice(1);
 
