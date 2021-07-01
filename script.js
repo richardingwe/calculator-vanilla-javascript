@@ -111,6 +111,7 @@ function inputValidation() {
     }
 
     if (digit.textContent[0] == '0') digit.textContent = digit.textContent.slice(1);
+    if (digit.textContent[0] == '.') digit.textContent = '0'.concat(digit.textContent);
 }
 
 function is_numeric(str) {
