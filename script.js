@@ -4,7 +4,7 @@ const clear = document.querySelector('.clear');
 const clearAll = document.querySelector('.clearAll');
 const solve = document.querySelector('.solve');
 
-let question = '';
+let question = 0;
 
 digit.textContent = 0;
 
@@ -37,6 +37,15 @@ buttons.forEach((button) => {
             digit.textContent += '÷';
         } else {
             digit.textContent += e.target.getAttribute("data");
+        }
+
+        if (digit.textContent[0] == '×') {
+            digit.textContent = 0;
+            question = '';
+        }
+        if (digit.textContent[0] == '÷') {
+            digit.textContent = 0;
+            question = '';
         }
     });
 });
@@ -71,6 +80,15 @@ window.addEventListener('keydown', (e) => {
     }
     if (value == 'Backspace') {
         clearOne();
+    }
+
+    if (digit.textContent[0] == '×') {
+        digit.textContent = 0;
+        question = '';
+    }
+    if (digit.textContent[0] == '÷') {
+        digit.textContent = 0;
+        question = '';
     }
 });
 
