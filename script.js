@@ -15,15 +15,7 @@ clearAll.addEventListener('click', () => {
 });
 
 clear.addEventListener('click', () => {
-    digit.textContent = digit.textContent.slice(0, digit.textContent.length - 1);
-    question = question.slice(digit.textContent.length - 1);;
-    if (!digit.textContent) digit.textContent = 0;
-
-    if (digit.textContent.length < 6) {
-        digit.style.fontSize = '5rem';
-    } else if (digit.textContent.length < 9) {
-        digit.style.fontSize = '3rem';
-    }
+    clearOne();
 });
 
 solve.addEventListener('click', () => {
@@ -34,19 +26,9 @@ solve.addEventListener('click', () => {
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        // console.log(e.target.getAttribute("data"));
-
         if (digit.textContent.length > 17) return;
 
-        if (digit.textContent.length > 7) {
-            digit.style.fontSize = '1.5rem';
-        } else if (digit.textContent.length > 4) {
-            digit.style.fontSize = '3rem';
-        }
-
-
-        if (digit.textContent[0] == '0') digit.textContent = digit.textContent.slice(1);
-
+        inputValidation();
         question += e.target.getAttribute("data");
 
         if (e.target.getAttribute("data") == '*') {
@@ -59,3 +41,62 @@ buttons.forEach((button) => {
     });
 });
 
+
+window.addEventListener('keydown', (e) => {
+    if (digit.textContent.length > 17) return;
+    inputValidation();
+
+    let value = e.key;
+    if (is_numeric(value) || value == '+' || value == '-' || value == '.') {
+        digit.textContent += e.key;
+        question += e.key;
+    }
+
+    if (value == '*') {
+        digit.textContent += '×';
+        question += '*';
+    }
+    if (value == '/') {
+        digit.textContent += '÷';
+        question += '/';
+    }
+    if (value == 'x') {
+        digit.textContent += '×';
+        question += '*';
+    }
+    if (value == 'Enter') {
+        let answer = eval(question);
+        digit.textContent = answer;
+        question = answer;
+    }
+    if (value == 'Backspace') {
+        clearOne();
+    }
+});
+
+
+function inputValidation() {
+    if (digit.textContent.length > 7) {
+        digit.style.fontSize = '1.5rem';
+    } else if (digit.textContent.length > 4) {
+        digit.style.fontSize = '3rem';
+    }
+
+    if (digit.textContent[0] == '0') digit.textContent = digit.textContent.slice(1);
+}
+
+function is_numeric(str) {
+    return /^\d+$/.test(str);
+}
+
+function clearOne() {
+    digit.textContent = digit.textContent.slice(0, digit.textContent.length - 1);
+    question = question.toString().slice(digit.textContent.length - 1);;
+    if (!digit.textContent) digit.textContent = 0;
+
+    if (digit.textContent.length < 6) {
+        digit.style.fontSize = '5rem';
+    } else if (digit.textContent.length < 9) {
+        digit.style.fontSize = '3rem';
+    }
+}
