@@ -11,7 +11,7 @@ digit.textContent = 0;
 clearAll.addEventListener('click', () => {
     digit.textContent = 0;
     digit.style.fontSize = '5rem';
-    question = '';
+    question = 0;
 });
 
 clear.addEventListener('click', () => {
@@ -41,11 +41,11 @@ buttons.forEach((button) => {
 
         if (digit.textContent[0] == '×') {
             digit.textContent = 0;
-            question = '';
+            question = 0;
         }
         if (digit.textContent[0] == '÷') {
             digit.textContent = 0;
-            question = '';
+            question = 0;
         }
     });
 });
@@ -84,11 +84,11 @@ window.addEventListener('keydown', (e) => {
 
     if (digit.textContent[0] == '×') {
         digit.textContent = 0;
-        question = '';
+        question = 0;
     }
     if (digit.textContent[0] == '÷') {
         digit.textContent = 0;
-        question = '';
+        question = 0;
     }
 });
 
