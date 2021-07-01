@@ -22,6 +22,8 @@ solve.addEventListener('click', () => {
     let answer = eval(question);
     digit.textContent = answer;
     question = answer;
+    digit.style.fontSize = '5rem';
+    inputValidation();
 });
 
 buttons.forEach((button) => {
@@ -44,6 +46,10 @@ buttons.forEach((button) => {
             question = 0;
         }
         if (digit.textContent[0] == '÷') {
+            digit.textContent = 0;
+            question = 0;
+        }
+        if (digit.textContent[0] == '%') {
             digit.textContent = 0;
             question = 0;
         }
@@ -87,6 +93,10 @@ window.addEventListener('keydown', (e) => {
         question = 0;
     }
     if (digit.textContent[0] == '÷') {
+        digit.textContent = 0;
+        question = 0;
+    }
+    if (digit.textContent[0] == '%') {
         digit.textContent = 0;
         question = 0;
     }
