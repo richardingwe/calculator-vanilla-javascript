@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll('.button');
 const clear = document.querySelector('.clear');
 const clearAll = document.querySelector('.clearAll');
 const solve = document.querySelector('.solve');
+const time = document.querySelector('.time');
 
 let question = 0;
 
@@ -128,4 +129,20 @@ function clearOne() {
     } else if (digit.textContent.length < 9) {
         digit.style.fontSize = '3rem';
     }
+}
+
+setInterval(getTime, 1000);
+
+function getTime() {
+    let hours, timeOfTheDay;
+    let minutes = new Date(Date.now()).getMinutes();
+    if (minutes < 9) minutes = '0'.concat(minutes);
+    if (new Date(Date.now()).getHours() > 12) {
+        hours = new Date(Date.now()).getHours() - 12;
+        timeOfTheDay = 'pm';
+    } else {
+        hours = new Date(Date.now()).getHours();
+        timeOfTheDay = `am`;
+    }
+    time.innerHTML = `${hours}:${minutes}${timeOfTheDay}`;
 }
