@@ -60,7 +60,9 @@
 	height: 70%;
 	/* background-color: darkslategrey; */
 }
-
+.fa-backspace {
+	width: 32px;
+}
 .digits {
 	font-size: 5rem;
 	color: white;
